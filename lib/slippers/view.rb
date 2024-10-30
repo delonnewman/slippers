@@ -22,7 +22,7 @@ module Slippers
         child.parent = self
       end
       @data = data
-      data.each do |key, value|
+      data.each_value do |value|
         value.add_observer(self) if value.is_a?(Model)
       end
     end
