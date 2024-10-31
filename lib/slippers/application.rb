@@ -46,7 +46,6 @@ module Slippers
       (controller, action) = request.route.action
       logger.info { "Rendering #{action_reference(action, controller)} from #{request.request_method} #{request.original_path}" }
 
-      Slippers.reload! if env.development?
       controller.new(self, request).send_action(action)
     end
 
