@@ -17,7 +17,7 @@ module Slippers
     end
 
     def location
-      method_object.source_location rescue binding.pry
+      method_object.source_location rescue nil
     end
 
     def code
