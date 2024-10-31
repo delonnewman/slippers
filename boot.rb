@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'logger'
 require 'bundler/setup'
 Bundler.require
 
@@ -28,11 +29,5 @@ Slippers.load do |loader|
 
   Listen.to('.') do |_modified, _added, _removed|
     loader.reload
-  end
-end
-
-module Slippers
-  def self.app
-    @app ||= Application.new
   end
 end

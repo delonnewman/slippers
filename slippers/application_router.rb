@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Slippers
-  class Application < ApplicationBase
+  class ApplicationRouter < Router
     get '/', DesktopController, :index
     get '/browser', BrowserController, :index
     get '/browser/:class_id', BrowserController, :methods
