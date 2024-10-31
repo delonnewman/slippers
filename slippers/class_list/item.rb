@@ -1,6 +1,5 @@
-
 module Slippers
-  class ClassListItem
+  class ClassList::Item
     extend Forwardable
 
     def_delegators :@klass, :instance_methods, :name

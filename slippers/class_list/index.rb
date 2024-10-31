@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Slippers
-  class ClassListIndex
+  class ClassList::Index
     extend Forwardable
 
     def_delegators :data, :values, :fetch
@@ -34,7 +34,7 @@ module Slippers
 
     def collect_classes(klass)
       subclasses = klass.subclasses
-      list = [ClassListItem.new(klass)]
+      list = [ClassList::Item.new(klass)]
       return list if subclasses.empty?
 
       list + subclasses.flat_map { |klass| collect_classes(klass) }

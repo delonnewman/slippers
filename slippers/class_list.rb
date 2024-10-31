@@ -23,7 +23,7 @@ module Slippers
     end
 
     def index
-      @index ||= ClassListIndex.new(superclass:)
+      @index ||= ClassList::Index.new(superclass:)
     end
   end
 end
