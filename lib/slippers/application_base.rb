@@ -16,7 +16,7 @@ module Slippers
       Slippers.reload!
       super(env)
     rescue StandardError => e
-      logger.error { e.pretty_inspect }
+      logger.error { "#{e.message}:\n#{e.backtrace.map { "  #{_1}\n" }.join}" }
     end
 
     def log_level

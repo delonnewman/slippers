@@ -31,8 +31,16 @@ module Slippers
     end
 
     def call(action)
-      logger.info { "Rendering #{self.class}##{action} from #{request.request_method} #{request.original_path}" }
+      logger.info { "Rendering #{action_reference(action)} from #{request.request_method} #{request.original_path}" }
       public_send(action)
+    end
+
+    private
+
+    def action_reference(action)
+      controller = self.class.name.split('::').last.sub('Controller', '').downcase
+
+      "#{controller}##{action}"
     end
   end
 end
