@@ -1,0 +1,15 @@
+#+title: Features
+
+| Problem                           | Solution / Feature                                          | Comments                                          |
+|-----------------------------------+-------------------------------------------------------------+---------------------------------------------------|
+| Want to see full class in context | Display full class source when clicking on class name       | Will (potentially) need to synthesize source from |
+|                                   |                                                             | multiple files                                    |
+|-----------------------------------+-------------------------------------------------------------+---------------------------------------------------|
+| Ruby classes can be spread across | Provide a file browser that complements the class browser   |                                                   |
+| multiple files                    | include links to the files that the class is implemented in |                                                   |
+|-----------------------------------+-------------------------------------------------------------+---------------------------------------------------|
+| Class list is really long         | Group classes by namespace (enclosing module or class)      | Start with object and denest                      |
+|-----------------------------------+-------------------------------------------------------------+---------------------------------------------------|
+| Need to be able to select Ruby    | Implement DRB service SDK                                   |                                                   |
+| instances                         |                                                             |                                                   |
+|-----------------------------------+-------------------------------------------------------------+---------------------------------------------------|
