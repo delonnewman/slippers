@@ -4,7 +4,7 @@ module Slippers
   class Controller
     extend Forwardable
 
-    def_delegators :@context, :request, :response, :routes
+    def_delegators :@context, :request, :response, :routes, :logger
     def_delegators :routes, :helpers
     def_delegators :request, :params
 
@@ -20,13 +20,18 @@ module Slippers
       extend(helpers)
     end
 
-    def render(view_class, ...)
-      view = view_class.new(...)
-      view.extend(helpers)
+    def render(view, ...)
+      if view.is_a?(Class)
+        view.include(helpers)
+        view = view.new(...)
+      else
+        view.extend(helpers)
+      end
       view.render
     end
 
     def call(action)
+      logger.info { "Rendering #{self.class}##{action} from #{request.request_method} #{request.original_path}" }
       public_send(action)
     end
   end

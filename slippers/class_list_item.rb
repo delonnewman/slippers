@@ -9,6 +9,10 @@ module Slippers
       @klass = klass
     end
 
+    def class_object
+      @klass
+    end
+
     def singleton_methods
       @klass.methods(false)
     end
@@ -17,5 +21,9 @@ module Slippers
       @klass.name || @klass.inspect
     end
     alias to_s label
+
+    def id
+      @klass.object_id
+    end
   end
 end

@@ -16,6 +16,12 @@ module Slippers
     end
     alias to_h data
 
+    def fetch(class_id)
+      data.fetch(class_id) do
+        raise "can't find class with id #{class_id.inspect}"
+      end
+    end
+
     private
 
     def generate

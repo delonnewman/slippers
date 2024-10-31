@@ -2,4 +2,4 @@
 
 require_relative 'boot'
 
-run Slippers::Application.new
+run Slippers.app
