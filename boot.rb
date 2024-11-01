@@ -4,7 +4,7 @@ require 'logger'
 require 'bundler/setup'
 Bundler.require
 
-$LOAD_PATH << "#{__dir__}/vendor/ruby/el-toolkit/el-core/lib" << "#{__dir__}/vendor/ruby/el-toolkit/el-routing/lib"
+$LOAD_PATH << "#{__dir__}/vendor/ruby/el-toolkit/lib"
 require 'el/constants'
 require 'el/routable'
 
