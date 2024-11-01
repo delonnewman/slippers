@@ -4,6 +4,8 @@ require 'drb/drb'
 
 module Slippers
   class Listener
+    include DRb::DRbUndumped
+
     def self.start(name:)
       new(name:).start
     end
