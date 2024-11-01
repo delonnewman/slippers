@@ -27,7 +27,7 @@ module Slippers
     end
 
     def class_index
-      ClassList::Index.new
+      Slippers::ClassList::Index.new
     end
   end
 end
