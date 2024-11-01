@@ -8,8 +8,10 @@ module Slippers
     delegate %i[each] => :@entries
     delegate %i[delete exist?] => :@path
 
+    FILENAME = '.slippers-registry'
+
     def initialize
-      @path = Pathname(ENV['HOME']).join('.slippers-registry')
+      @path = Pathname(ENV['HOME']).join(FILENAME)
       if @path.exist?
         @entries = read
       else
