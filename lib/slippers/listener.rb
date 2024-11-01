@@ -2,12 +2,14 @@
 
 require 'drb/drb'
 
+require_relative 'registry'
+
 module Slippers
   class Listener
     include DRb::DRbUndumped
 
     def self.start(name:)
-      new(name:).start
+      Thread.new { new(name:).start }
     end
 
     def initialize(name:)
