@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'erubi'
+gemspec
+
 gem 'listen'
-gem 'method_source'
 gem 'pry'
 gem 'pry-stack_explorer'
-gem 'puma'
-gem 'rack'
-gem 'zeitwerk'
