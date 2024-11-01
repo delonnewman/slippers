@@ -21,6 +21,7 @@ module Slippers
 
     def start
       @registry.add(uri: @uri, name: @name)
+      $stderr.puts("Starting listener for #@name at #@url")
       DRb.start_service(@uri, self)
       DRb.thread.join
     end
