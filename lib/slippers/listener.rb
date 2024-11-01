@@ -3,6 +3,7 @@
 require 'drb/drb'
 
 require_relative 'registry'
+require_relative 'class_list/index'
 
 module Slippers
   class Listener
@@ -20,14 +21,14 @@ module Slippers
     end
 
     def start
-      @registry.add(uri: @uri, name: @name)
+      @registry.insert(uri: @uri, name: @name)
       $stderr.puts("Starting listener for #@name at #@uri")
       DRb.start_service(@uri, self)
       DRb.thread.join
     end
 
     def class_index
-      Slippers::ClassList::Index.new
+      ClassList::Index.new
     end
   end
 end
