@@ -27,7 +27,7 @@ module Slippers
     end
 
     def add(entry)
-      @entries << [:add, entry]
+      @entries << entry
       self
     end
 
