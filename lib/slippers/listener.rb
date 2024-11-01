@@ -3,7 +3,6 @@
 require 'drb/drb'
 
 require_relative 'registry'
-require_relative 'class_list/index'
 
 module Slippers
   class Listener
@@ -28,7 +27,19 @@ module Slippers
     end
 
     def class_index
-      ClassList::Index.new
+      collect_classes(BasicObject)
+        .sort_by(&:name)
+        .group_by(&:name)
+        .transform_values(&:first)
+        .freeze
+    end
+
+    def collect_classes(klass)
+      subclasses = klass.subclasses
+      list = [klass]
+      return list if subclasses.empty?
+
+      list + subclasses.flat_map { |klass| collect_classes(klass) }
     end
   end
 end
