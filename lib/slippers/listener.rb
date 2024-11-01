@@ -14,7 +14,7 @@ module Slippers
 
     def initialize(name:)
       @name = name
-      @port = 4.times.map { rand(10) }.join
+      @port = 4.times.map { rand(9) + 1 }.join
       @uri = "druby://localhost:#@port"
       @registry = Registry.new
     end
