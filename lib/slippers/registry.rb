@@ -6,6 +6,7 @@ module Slippers
     include Enumerable
 
     delegate %i[each] => :@entries
+    delegate %i[delete exist?] => :@path
 
     def initialize
       @path = Pathname(ENV['HOME']).join('.slippers-registry')
@@ -25,6 +26,7 @@ module Slippers
 
     def add(entry)
       @entries << [:add, entry]
+      self
     end
 
     def write
